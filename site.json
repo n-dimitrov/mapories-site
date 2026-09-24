@@ -1,0 +1,24 @@
+{
+  "app_url": "https://app.maporiesbooks.com",
+  "start_path": "/app#new",
+  "books_path": "/app#books",
+  "start": {
+    "enabled": true,
+    "notice": "",
+    "until": null
+  },
+  "product": {
+    "label": "Hardcover 21 × 28 cm",
+    "base_pages": 32
+  },
+  "price": {
+    "currency": "EUR",
+    "from_cents": 5490,
+    "vat_included": true,
+    "sheet_version": 0
+  },
+  "photo_floor": 20,
+  "preview_time": "about a minute",
+  "ship_to": [],
+  "promotion": null
+}
