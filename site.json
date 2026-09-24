@@ -3,8 +3,8 @@
   "start_path": "/app#new",
   "books_path": "/app#books",
   "start": {
-    "enabled": true,
-    "notice": "",
+    "enabled": false,
+    "notice": "New books open soon.",
     "until": null
   },
   "product": {
