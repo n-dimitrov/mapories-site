@@ -524,9 +524,6 @@
   const setAll = (key, text) => document.querySelectorAll('[data-bind="' + key + '"]').forEach(el => { el.textContent = text; });
   function apply(s){
     const app = String(s.app_url || '').replace(/\/$/, '');
-    // a link meant for the app (an order receipt, My books, a book) written
-    // for the old root lands here — hand it to the app with its hash
-    if (/^#(order=|books|t=|new$)/.test(location.hash)){ location.replace(app + '/app' + location.hash); return; }
     document.querySelectorAll('[data-app]').forEach(a => { const p = s[a.dataset.app]; if (p) a.href = app + p; });
     const starts = document.querySelectorAll('[data-start]');
     starts.forEach(a => { a.href = app + (s.start_path || '/app#new'); });
