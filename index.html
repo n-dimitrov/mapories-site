@@ -522,12 +522,20 @@
   const money = (cents, cur) => new Intl.NumberFormat('en', {style: 'currency', currency: cur || 'EUR'}).format(cents / 100);
   const names = 'DisplayNames' in Intl ? new Intl.DisplayNames(['en'], {type: 'region'}) : null;
   const setAll = (key, text) => document.querySelectorAll('[data-bind="' + key + '"]').forEach(el => { el.textContent = text; });
+  // the visitor's currency, guessed the way the app guesses it (#601):
+  // the browser's region → the sheet's country default → the home price
+  function fromPrice(p){
+    const region = ((navigator.language || '').split('-')[1] || '').toUpperCase();
+    const cur = region && (p.defaults || {})[region];
+    const cents = cur && (p.prices || {})[cur];
+    return cents ? [cents, cur] : [p.from_cents, p.currency];
+  }
   function apply(s){
     const app = String(s.app_url || '').replace(/\/$/, '');
     document.querySelectorAll('[data-app]').forEach(a => { const p = s[a.dataset.app]; if (p) a.href = app + p; });
     const starts = document.querySelectorAll('[data-start]');
     starts.forEach(a => { a.href = app + (s.start_path || '/app#new'); });
-    if (s.price && s.price.from_cents){ setAll('price', money(s.price.from_cents, s.price.currency)); const r = document.querySelector('.ticket[data-ticket="order"] .ring b'); if (r) r.textContent = money(s.price.from_cents, s.price.currency); }
+    if (s.price && s.price.from_cents){ const [cents, cur] = fromPrice(s.price); setAll('price', money(cents, cur)); const r = document.querySelector('.ticket[data-ticket="order"] .ring b'); if (r) r.textContent = money(cents, cur); }
     if (s.product && s.product.base_pages) setAll('pages', String(s.product.base_pages));
     if (s.product && s.product.label) setAll('product', s.product.label);
     if (s.photo_floor) setAll('floor', String(s.photo_floor));
