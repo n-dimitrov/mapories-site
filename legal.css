@@ -1,0 +1,66 @@
+/* Legal, Terms, Privacy: one reading column in the landing's tokens. */
+@font-face{font-family:Newsreader; src:url("fonts/newsreader.ttf") format("truetype"); font-weight:400; font-display:swap}
+@font-face{font-family:Newsreader; src:url("fonts/newsreader_light.ttf") format("truetype"); font-weight:300; font-display:swap}
+:root{
+  --bg:#fbfaf8; --card:#ffffff; --ink:#1f2933; --mut:#6b7684; --line:#e4e7eb;
+  --navy:#1f2a44; --terra:#b84a2e; --note:#fff8e6; --noteline:#ead9a8;
+  --wm-filter:none;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141a27; --card:#1b2233; --ink:#eef1f6; --mut:#9aa5b8; --line:#2b3446;
+    --navy:#c9d3ec; --terra:#e07a5a; --note:#2a2616; --noteline:#4a4020;
+    --wm-filter:brightness(0) invert(1);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141a27; --card:#1b2233; --ink:#eef1f6; --mut:#9aa5b8; --line:#2b3446;
+  --navy:#c9d3ec; --terra:#e07a5a; --note:#2a2616; --noteline:#4a4020;
+  --wm-filter:brightness(0) invert(1);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg); color:var(--ink); font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--terra); outline-offset:2px}
+.wrap{max-width:1120px; margin:0 auto; padding-inline:clamp(16px,4vw,40px)}
+.bar{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:18px; flex-wrap:wrap}
+.bar img{height:30px; width:auto; display:block; filter:var(--wm-filter)}
+.bar nav{display:flex; gap:22px; font-size:13.5px; color:var(--mut)}
+.bar nav a{text-decoration:none}
+.bar nav a:hover, .bar nav a[aria-current]{color:var(--ink)}
+
+main{max-width:720px; padding-block:28px 64px}
+h1,h2{font-family:Newsreader,Georgia,"Times New Roman",serif; font-weight:400; letter-spacing:-.005em; text-wrap:balance; margin:0}
+h1{font-size:clamp(34px,5vw,52px); line-height:1.06}
+h2{font-size:26px; line-height:1.2; margin-top:44px; padding-top:20px; border-top:1px solid var(--line)}
+h3{font-size:16px; font-weight:600; margin:24px 0 0}
+p, ul, ol, dl, table{margin:12px 0 0}
+ul, ol{padding-left:22px}
+li + li{margin-top:6px}
+.updated{color:var(--mut); font-size:13.5px; margin-top:10px}
+.lede{font-size:18px; line-height:1.55; color:var(--mut); margin-top:18px}
+main a{color:var(--terra); text-underline-offset:2px}
+
+dl.facts{display:grid; grid-template-columns:max-content 1fr; gap:8px 24px}
+dl.facts dt{color:var(--mut)}
+dl.facts dd{margin:0}
+@media (max-width:520px){
+  dl.facts{grid-template-columns:1fr; gap:2px}
+  dl.facts dd{margin-bottom:10px}
+}
+
+.tablewrap{overflow-x:auto; margin-top:12px}
+table{border-collapse:collapse; width:100%; font-size:14.5px; margin:0}
+th, td{text-align:left; vertical-align:top; padding:10px 12px 10px 0; border-bottom:1px solid var(--line)}
+th{font-weight:600; font-size:12.5px; color:var(--mut); white-space:nowrap}
+td:first-child{white-space:nowrap; font-weight:600}
+
+/* still to decide or fill in before this goes live */
+.draft{background:var(--note); border:1px solid var(--noteline); border-radius:10px; padding:12px 16px; font-size:14px; margin-top:20px}
+mark.todo{background:var(--note); color:inherit; border:1px dashed var(--noteline); border-radius:4px; padding:0 4px}
+
+footer{padding-block:22px 40px; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:16px;
+  flex-wrap:wrap; font-size:12.5px; color:var(--mut)}
+footer nav{display:flex; gap:16px}
