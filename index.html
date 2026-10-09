@@ -310,7 +310,7 @@
         <a href="#how" class="btn ghost">See how it works</a>
       </div>
       <p class="notice" id="startNotice" hidden role="status"></p>
-      <p class="fine"><b><span data-bind="product">Hardcover 21 × 28 cm</span> from <span data-bind="price">€54.90</span></b> for <span data-bind="pages">32</span> pages, VAT included. The button takes you straight to the upload screen. No account needed to start.</p>
+      <p class="fine"><b><span data-bind="product">Hardcover 21 × 28 cm</span> from <span data-bind="price">€54.90</span></b> for <span data-bind="pages">32</span> pages, VAT included. The button takes you straight to the upload screen. No account needed to start.<span id="deliverLine" hidden></span></p>
     </div>
 
     <div class="cover-wrap">
@@ -443,7 +443,7 @@
           <dt>Pages</dt><dd>From <span data-bind="pages">32</span> pages. The book grows with the trip, and you see the page count and price before you pay</dd>
           <dt>Cover</dt><dd>A taped wall of your best prints on the route map, or one photo full bleed. Twelve board colours</dd>
           <dt>Inside</dt><dd>A journey map, a contents page with the highlights, and one chapter per day with its own route map</dd>
-          <dt>Printing</dt><dd>Printed close to you and shipped within 5 to 9 working days in most of Europe<span id="shipTo" hidden></span></dd>
+          <dt>Printing</dt><dd>Printed close to you and shipped within 5 to 9 working days<span id="shipTo" hidden></span></dd>
           <dt>Price</dt><dd><span data-bind="price">€54.90</span> for the <span data-bind="pages">32</span>-page 21 × 28 cm hardcover, VAT included. Longer books cost a little more per page; you see the exact price before checkout. Shipping is quoted live for your address</dd>
         </dl>
       </div>
@@ -599,12 +599,28 @@
     if (s.preview_time) setAll('preview_time', s.preview_time);
     const ship = document.getElementById('shipTo');
     if (ship && Array.isArray(s.ship_to) && s.ship_to.length){
-      const list = s.ship_to.map(cc => names ? names.of(cc) : cc);
-      const names_ = list.length > 1 ? list.slice(0, -1).join(', ') + ' and ' + list[list.length - 1] : list[0];
-      ship.textContent = '. We ship to ' + names_;
+      // #662: the list in words — "the EU" when it is the EU 27, a short
+      // list by name, else a count — and the visitor's own country first
+      const EU27 = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE'];
+      const codes = s.ship_to.map(c => String(c).toUpperCase());
+      const isEU = codes.length === 27 && EU27.every(c => codes.includes(c));
+      const list = codes.map(cc => names ? names.of(cc) : cc);
+      const where = isEU ? 'the EU'
+        : list.length <= 4 ? (list.length > 1 ? list.slice(0, -1).join(', ') + ' and ' + list[list.length - 1] : list[0])
+        : `${list.length} countries`;
+      ship.textContent = ' to ' + where;
       ship.hidden = false;
       const fs = document.getElementById('faqShip');
-      if (fs) fs.textContent = 'Today we deliver to ' + names_ + '. More countries are coming.';
+      if (fs) fs.textContent = `Today we deliver ${isEU ? 'in' : 'to'} ${where}. More countries are coming.`;
+      const region = ((navigator.language || '').split('-')[1] || '').toUpperCase();
+      const dl = document.getElementById('deliverLine');
+      if (dl){
+        const mine = region && names ? names.of(region) : region;
+        dl.textContent = !region ? ` We deliver ${isEU ? 'in' : 'to'} ${where} today.`
+          : codes.includes(region) ? ` We deliver to ${mine}.`
+          : ` We deliver ${isEU ? 'in' : 'to'} ${where} today. ${mine} soon.`;
+        dl.hidden = false;
+      }
     }
     // the switch: off means every start button goes quiet and says why
     const st = s.start || {};
