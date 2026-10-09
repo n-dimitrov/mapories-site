@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<title>Privacy — mapories.books</title>
+<meta name="description" content="What Mapories Books collects, why, how long it is kept, who it is shared with, and how to get or delete your data.">
+<link rel="stylesheet" href="legal.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <a href="/" aria-label="mapories.books"><img src="assets/wordmark.svg" alt="mapories.books" width="103" height="36"></a>
+    <nav>
+      <a href="/legal">Legal</a>
+      <a href="/terms">Terms</a>
+      <a href="/privacy" aria-current="page">Privacy</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Privacy</h1>
+    <p class="updated">Last updated: 9 October 2026</p>
+
+    <p class="lede">We use your photos to make your book and for nothing else. No advertising, no analytics trackers, no selling of data.</p>
+
+    <h2 id="controller">1. Who is responsible</h2>
+    <p>Samarti Art Ltd., Sofia, Bulgaria (UIC 208055883), is the controller of your personal data. Full company details are on the <a href="/legal">Legal</a> page. For anything about your data, write to <a href="mailto:office@maporiesbooks.com">office@maporiesbooks.com</a>.</p>
+
+    <h2 id="what">2. What we collect</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Data</th><th>What it is</th><th>Why we need it</th></tr></thead>
+      <tbody>
+        <tr><td>Photos</td><td>The image files you upload or pick from Google Drive, and smaller copies we make for the preview.</td><td>To design, preview and print your book.</td></tr>
+        <tr><td>Photo details</td><td>What the camera wrote into each file: date and time, GPS position, camera model.</td><td>To order the trip, draw the route on the maps and name the places.</td></tr>
+        <tr><td>The book</td><td>What we derive: chosen photos, place names, chapters, titles, captions, the cover and page layouts.</td><td>This is the product.</td></tr>
+        <tr><td>Account</td><td>Your email address, and your name when Google provides it. With email sign-in: the address and a record that a code was sent.</td><td>To save your books and let you back in.</td></tr>
+        <tr><td>Guest id</td><td>A random id in a cookie when you use the app without signing in.</td><td>To keep your work between visits.</td></tr>
+        <tr><td>Order</td><td>Name, delivery address, phone number if asked by the carrier, email, what you ordered and paid.</td><td>To print and deliver the book, send order emails, and keep the accounts the law requires.</td></tr>
+        <tr><td>Payment</td><td>Handled by Stripe. We receive the result, amount and country, never your card number.</td><td>To take payment and issue refunds.</td></tr>
+        <tr><td>Technical</td><td>IP address, browser type, time of requests, error logs.</td><td>To run the service securely and stop abuse.</td></tr>
+        <tr><td>Messages</td><td>What you write to us by email.</td><td>To answer you.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>From Google Drive we can read only the files you pick in Google's own file picker, not the rest of your Drive.</p>
+    <p>Photos often show other people. Upload only photos you are allowed to use.</p>
+
+    <h2 id="ai">3. How your photos are processed, including AI</h2>
+    <ul>
+      <li>Software reads each photo's date and GPS position, groups the trip into days and places, and drops near-duplicates.</li>
+      <li><b>AI models look at your photos.</b> Reduced-size copies, together with place names and dates, are sent through OpenRouter to AI model providers to describe what is in a photo, choose the best ones, plan chapters and write titles and captions.</li>
+      <li>GPS coordinates, without the photo and without anything that identifies you, are looked up in map data to find place names. Part of this uses the public OpenStreetMap services.</li>
+      <li>We do not use face recognition and do not build profiles of the people in your photos.</li>
+      <li>No decision with legal or similar effect on you is made automatically. The result is a book design that you review before ordering.</li>
+      <li>The AI providers process your photos and text only to answer our request. We use them under business terms that do not allow them to train their models on your content, and OpenRouter is set to route only to such providers.</li>
+    </ul>
+
+    <h2 id="basis">4. Legal grounds</h2>
+    <ul>
+      <li><b>Contract</b> (GDPR Art. 6(1)(b)): making the book you asked for, your account, your order and delivery.</li>
+      <li><b>Legal obligation</b> (Art. 6(1)(c)): invoices and accounting records.</li>
+      <li><b>Legitimate interest</b> (Art. 6(1)(f)): keeping the service secure, preventing abuse, fixing errors, and measuring how the service performs in aggregate.</li>
+    </ul>
+    <p>We send only emails about your account and your orders. There is no newsletter.</p>
+
+    <h2 id="who">5. Who receives your data</h2>
+    <p>We use these companies to run the service. Each gets only what its task needs.</p>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Company</th><th>Task</th><th>What it receives</th></tr></thead>
+      <tbody>
+        <tr><td>Google Cloud</td><td>Hosting, file storage, sign-in (Firebase Authentication)</td><td>Everything stored in the service; your Google sign-in.</td></tr>
+        <tr><td>Neon</td><td>Database</td><td>Account, book and order records. Not the photo files.</td></tr>
+        <tr><td>OpenRouter</td><td>Access to AI models that describe photos, choose them and write captions</td><td>Reduced-size photos, place names, dates. OpenRouter passes them to the company whose model does the work. Which models we use changes over time.</td></tr>
+        <tr><td>OpenStreetMap services</td><td>Place names from coordinates</td><td>GPS coordinates only.</td></tr>
+        <tr><td>Stripe</td><td>Payment</td><td>Your payment details, email, amount, order reference.</td></tr>
+        <tr><td>Gelato</td><td>Printing and delivery, with its print houses and carriers</td><td>The print files of your book, your name, delivery address, email and phone.</td></tr>
+        <tr><td>Resend</td><td>Sending email</td><td>Your email address and the content of our emails to you, including sign-in codes.</td></tr>
+        <tr><td>Cloudflare</td><td>Domain and network services</td><td>Technical connection data.</td></tr>
+        <tr><td>GitHub Pages</td><td>Hosts this website (not the app)</td><td>Technical connection data.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>We also share data when the law requires it, for example with tax authorities, and with our accountant for the order records.</p>
+    <p>Some of these companies are in the United States or process data there. Transfers rely on the EU–US Data Privacy Framework or on the European Commission's standard contractual clauses. The app, your photos and your books are stored in Google Cloud's Belgium region. The database runs in Neon's Frankfurt region. Both are in the EU.</p>
+
+    <h2 id="retention">6. How long we keep it</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Data</th><th>Kept for</th></tr></thead>
+      <tbody>
+        <tr><td>Guest work</td><td>Deleted automatically 30 days after your last visit, photos included.</td></tr>
+        <tr><td>Account, photos, books</td><td>Until you delete the book or ask us to delete the account. We do not delete inactive accounts on our own.</td></tr>
+        <tr><td>Ordered books</td><td>The print files are kept for two years after delivery, the period of the legal guarantee, so we can reprint if something goes wrong. Then they are deleted.</td></tr>
+        <tr><td>Order and invoice records</td><td>Ten years after the end of the year of the order, as Bulgarian accounting and VAT law requires.</td></tr>
+        <tr><td>Sign-in codes</td><td>One day.</td></tr>
+        <tr><td>Server logs</td><td>30 days.</td></tr>
+        <tr><td>AI usage records</td><td>A record of each AI call is kept for cost accounting after a book or account is deleted: the model, the cost, and the text sent and returned (place names, dates, captions). Never the photos.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2 id="cookies">7. Cookies</h2>
+    <ul>
+      <li>The app sets <b>one cookie</b>, <code>mapories_uid</code>, which holds your guest or account id for up to one year. It is necessary for the service to work, so there is no consent banner.</li>
+      <li>The app also keeps small preferences in your browser's storage, such as the last view you used. They never leave your browser.</li>
+      <li>We use no analytics, advertising or social media trackers.</li>
+      <li>This website (the landing page) sets no cookies.</li>
+      <li>When you sign in with Google or pay with Stripe, you are on their pages and their own cookies apply.</li>
+    </ul>
+
+    <h2 id="rights">8. Your rights</h2>
+    <p>Under the GDPR you can:</p>
+    <ul>
+      <li>get a copy of the data we hold about you;</li>
+      <li>have wrong data corrected;</li>
+      <li>have your data deleted, including your account, photos and books;</li>
+      <li>ask us to restrict processing, or object to processing based on legitimate interest;</li>
+      <li>receive your data in a portable form.</li>
+    </ul>
+    <p>Write to <a href="mailto:office@maporiesbooks.com">office@maporiesbooks.com</a> from the email address of your account. We answer within one month. It is free.</p>
+    <p>Two limits: we must keep order and invoice records for the period the law sets, even after deleting your account; and an account cannot be deleted while one of its books is at the printer or in the post.</p>
+    <p>You can also complain to the Bulgarian Commission for Personal Data Protection, <a href="https://cpdp.bg" rel="noopener">cpdp.bg</a>, or to the data protection authority of the country where you live.</p>
+
+    <h2 id="security">9. Security</h2>
+    <p>Connections are encrypted. Photos are stored in private storage and are reachable only through your session. Access on our side is limited to the people who run the service. If a breach affects your data, we tell you and the authority as the law requires.</p>
+
+    <h2 id="children">10. Children</h2>
+    <p>The service is for adults. We do not knowingly create accounts for anyone under 16. Photos of your own children in your book are your decision as a parent.</p>
+
+    <h2 id="changes">11. Changes</h2>
+    <p>When we change how data is handled, we update this page and its date. If the change is significant, account holders hear about it by email first.</p>
+  </main>
+
+  <footer>
+    <span>© 2026 mapories.books · a brand of <a href="https://samartiart.com">Samarti Art</a></span>
+    <nav><a href="/legal">Legal</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></nav>
+  </footer>
+</div>
+</body>
+</html>
