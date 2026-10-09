@@ -23,5 +23,6 @@
   "photo_floor": 20,
   "preview_time": "a few minutes",
   "ship_to": [],
-  "promotion": null
+  "promotion": null,
+  "photo_max": 200
 }
