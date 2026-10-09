@@ -9,18 +9,18 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mapories Books">
 <meta property="og:url" content="https://maporiesbooks.com/">
-<meta property="og:title" content="Mapories Books — your trip, printed as an atlas">
-<meta property="og:description" content="Upload a trip. We read where you stood, keep the best shots, write the captions and lay out a hardcover with your route on the maps. Preview free, pay when you order.">
+<meta property="og:title" content="Mapories Books — a travel photo book with your route on the maps">
+<meta property="og:description" content="A travel photo book made from your phone photos: we read where you stood, keep the best shots, write the captions and lay out a hardcover with your route on the maps. Preview free in about a minute, pay only when you order.">
 <meta property="og:image" content="https://maporiesbooks.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="A Mapories hardcover: five photo prints taped over a map of Italy, titled Rome to Venice">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mapories Books — your trip, printed as an atlas">
+<meta name="twitter:title" content="Mapories Books — a travel photo book with your route on the maps">
 <meta name="twitter:description" content="Upload a trip. Preview the hardcover in a minute. Pay only when you order.">
 <meta name="twitter:image" content="https://maporiesbooks.com/assets/og-image.png">
-<title>mapories.books — your trip, printed as an atlas</title>
-<meta name="description" content="Upload a trip. We read where you stood, keep the best shots, write the captions and lay out a hardcover with your route on the maps. Preview free, pay when you order.">
+<title>Mapories Books — a travel photo book with your route on the maps</title>
+<meta name="description" content="A travel photo book made from your phone photos: we read where you stood, keep the best shots, write the captions and lay out a hardcover with your route on the maps. Preview free in about a minute, pay only when you order.">
 <style>
   @font-face{font-family:Newsreader; src:url("fonts/newsreader.ttf") format("truetype"); font-weight:400; font-display:swap}
   @font-face{font-family:Newsreader; src:url("fonts/newsreader_light.ttf") format("truetype"); font-weight:300; font-display:swap}
@@ -181,6 +181,9 @@
 
   /* ---- sections ---- */
   section.s{padding-block:56px; border-top:1px solid var(--line)}
+  .faq{margin:0; display:grid; gap:20px; max-width:70ch}
+  .faq dt{font:400 21px/1.25 Newsreader,Georgia,"Times New Roman",serif; margin:0; text-wrap:balance}
+  .faq dd{margin:6px 0 0; color:var(--mut); font-size:15.5px; line-height:1.55; text-wrap:pretty}
   .shead{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.4fr); gap:24px 48px; align-items:end; margin-bottom:32px}
   .shead p{color:var(--mut); font-size:16px; max-width:56ch; text-wrap:pretty}
   .steps{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-rows:auto auto auto 1fr; gap:18px}
@@ -264,6 +267,14 @@
  {"@type":"Organization","@id":"https://maporiesbooks.com/#org","name":"Mapories Books","legalName":"Samarti Art Ltd.","url":"https://maporiesbooks.com/","logo":"https://maporiesbooks.com/assets/og-image.png","email":"office@maporiesbooks.com","sameAs":["https://samartiart.com"]},
  {"@type":"WebSite","@id":"https://maporiesbooks.com/#site","url":"https://maporiesbooks.com/","name":"Mapories Books","publisher":{"@id":"https://maporiesbooks.com/#org"}},
  {"@type":"Product","name":"Mapories photobook","description":"A printed hardcover atlas of one trip: your photos, captions and route maps, laid out automatically from the photos' dates and places.","image":"https://maporiesbooks.com/assets/og-image.png","brand":{"@type":"Brand","name":"Mapories Books"},"offers":{"@type":"Offer","url":"https://maporiesbooks.com/","priceCurrency":"EUR","price":"54.90","priceValidUntil":"2027-12-31","availability":"https://schema.org/InStock","seller":{"@id":"https://maporiesbooks.com/#org"}}}
+,
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How do I make a photo book from my phone photos?","acceptedAnswer":{"@type":"Answer","text":"Upload the trip's photos from your phone or from Google Drive, at least 20. Mapories reads the dates and the GPS in them, groups the trip into days and places, keeps the best shots and lays out the book. You page through the whole preview before paying anything."}},
+  {"@type":"Question","name":"Does the book have maps of where I went?","acceptedAnswer":{"@type":"Answer","text":"Yes. The book opens on a map of the whole journey, and each chapter opens on the route of that day, with the towns and sights marked where you took the photos."}},
+  {"@type":"Question","name":"Who writes the captions?","acceptedAnswer":{"@type":"Answer","text":"Mapories does, from the place, the date and what is in the photo. You see every title and caption in the preview and can change any of them before you order."}},
+  {"@type":"Question","name":"How long does it take?","acceptedAnswer":{"@type":"Answer","text":"About a minute from upload to a full preview. The printed hardcover is produced close to you and delivered in about two weeks."}},
+  {"@type":"Question","name":"What does it cost and where do you deliver?","acceptedAnswer":{"@type":"Answer","text":"A 21 × 28 cm hardcover starts at €54.90 for 32 pages, VAT included. Extra pages and shipping are shown before you pay; shipping is priced at checkout for your country."}}
+ ]}
 ]}
 </script>
 </head>
@@ -321,7 +332,7 @@
 
   <section class="s" id="how">
     <div class="shead">
-      <h2>You drop the photos. The rest is done for you.</h2>
+      <h2>From phone photos to a finished photo book, automatically</h2>
       <p>Timestamps and GPS already know your itinerary. We turn a folder of photos into a designed book the way an editor would, and you watch each step land while it happens.</p>
     </div>
     <div class="steps">
@@ -348,7 +359,7 @@
 
   <section class="s" id="places">
     <div class="shead">
-      <h2>It knows where you stood, not just which town.</h2>
+      <h2>Every place you stood, named in the book</h2>
       <p>Every photo is placed four levels deep: the country, the town, the street or square, and the place itself, the museum, the fountain, the bridge. When that place is on the UNESCO World Heritage list, the chapter says so: a kicker on its opener, and the stamp on the contents and route pages. These three openers are from this trip’s books, as printed.</p>
     </div>
     <div class="openers">
@@ -383,7 +394,7 @@
 
   <section class="s" id="maps">
     <div class="shead">
-      <h2>Every chapter opens on your route.</h2>
+      <h2>Your route on real maps, one per chapter</h2>
       <p>The maps are the signature. Not a stock print, but your actual path and stops, Rome north to the lakes and east to the lagoon, drawn on the same paper-and-ink look you saw on the upload screen. The book reads like a personal atlas, not a photo dump.</p>
     </div>
     <div class="maps3">
@@ -426,7 +437,7 @@
     <div class="book">
       <div>
         <p class="eyebrow">The book</p>
-        <h2 style="margin-top:8px">A hardcover that feels like it came from a small press.</h2>
+        <h2 style="margin-top:8px">A printed hardcover photo book, 21 × 28 cm</h2>
         <dl class="spec">
           <dt>Format</dt><dd>Hardcover, 21 × 28 cm portrait, matte wrap cover with your title on the spine</dd>
           <dt>Pages</dt><dd>From <span data-bind="pages">32</span> pages. The book grows with the trip, and you see the page count and price before you pay</dd>
@@ -450,6 +461,25 @@
       <div><h3>Start as a guest</h3><p>No sign-up wall. Sign in when you want the book saved to your account, and it moves over with you.</p></div>
       <div><h3>Delete any time</h3><p>An unfinished book and its photos are removed the moment you ask. Nothing is kept for “later”.</p></div>
     </div>
+  </section>
+
+  <section class="s" id="faq">
+    <div class="shead">
+      <h2>Questions people ask</h2>
+      <p>The short answers. The terms and the privacy page have the long ones.</p>
+    </div>
+    <dl class="faq">
+      <dt>How do I make a photo book from my phone photos?</dt>
+      <dd>Upload the trip’s photos from your phone or from Google Drive, at least <span data-bind="floor">20</span>. Mapories reads the dates and the GPS in them, groups the trip into days and places, keeps the best shots and lays out the book. You page through the whole preview before paying anything.</dd>
+      <dt>Does the book have maps of where I went?</dt>
+      <dd>Yes. The book opens on a map of the whole journey, and each chapter opens on the route of that day, with the towns and sights marked where you took the photos.</dd>
+      <dt>Who writes the captions?</dt>
+      <dd>Mapories does, from the place, the date and what is in the photo. You see every title and caption in the preview and can change any of them before you order.</dd>
+      <dt>How long does it take?</dt>
+      <dd><span data-bind="preview_time">About a minute</span> from upload to a full preview. The printed hardcover is produced close to you and delivered in about two weeks.</dd>
+      <dt>What does it cost and where do you deliver?</dt>
+      <dd>The <span data-bind="product">Hardcover 21 × 28 cm</span> starts at <span data-bind="price">€54.90</span> for <span data-bind="pages">32</span> pages, VAT included. Extra pages and shipping are shown before you pay. <span id="faqShip">Shipping is priced at checkout for your country.</span></dd>
+    </dl>
   </section>
 
   <section class="final">
@@ -570,8 +600,11 @@
     const ship = document.getElementById('shipTo');
     if (ship && Array.isArray(s.ship_to) && s.ship_to.length){
       const list = s.ship_to.map(cc => names ? names.of(cc) : cc);
-      ship.textContent = '. We ship to ' + (list.length > 1 ? list.slice(0, -1).join(', ') + ' and ' + list[list.length - 1] : list[0]);
+      const names_ = list.length > 1 ? list.slice(0, -1).join(', ') + ' and ' + list[list.length - 1] : list[0];
+      ship.textContent = '. We ship to ' + names_;
       ship.hidden = false;
+      const fs = document.getElementById('faqShip');
+      if (fs) fs.textContent = 'Today we deliver to ' + names_ + '. More countries are coming.';
     }
     // the switch: off means every start button goes quiet and says why
     const st = s.start || {};
