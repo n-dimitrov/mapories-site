@@ -269,7 +269,7 @@
  {"@type":"Product","name":"Mapories photobook","description":"A printed hardcover atlas of one trip: your photos, captions and route maps, laid out automatically from the photos' dates and places.","image":"https://maporiesbooks.com/assets/og-image.png","brand":{"@type":"Brand","name":"Mapories Books"},"offers":{"@type":"Offer","url":"https://maporiesbooks.com/","priceCurrency":"EUR","price":"54.90","priceValidUntil":"2027-12-31","availability":"https://schema.org/InStock","seller":{"@id":"https://maporiesbooks.com/#org"}}}
 ,
  {"@type":"FAQPage","mainEntity":[
-  {"@type":"Question","name":"How do I make a photo book from my phone photos?","acceptedAnswer":{"@type":"Answer","text":"Upload the trip's photos from your phone or from Google Drive, at least 20. Mapories reads the dates and the GPS in them, groups the trip into days and places, keeps the best shots and lays out the book. You page through the whole preview before paying anything."}},
+  {"@type":"Question","name":"How do I make a photo book from my phone photos?","acceptedAnswer":{"@type":"Answer","text":"Upload the trip's photos from your phone or from Google Drive, between 20 and 200 of them. Mapories reads the dates and the GPS in them, groups the trip into days and places, keeps the best shots and lays out the book. You page through the whole preview before paying anything."}},
   {"@type":"Question","name":"Does the book have maps of where I went?","acceptedAnswer":{"@type":"Answer","text":"Yes. The book opens on a map of the whole journey, and each chapter opens on the route of that day, with the towns and sights marked where you took the photos."}},
   {"@type":"Question","name":"Who writes the captions?","acceptedAnswer":{"@type":"Answer","text":"Mapories does, from the place, the date and what is in the photo. You see every title and caption in the preview and can change any of them before you order."}},
   {"@type":"Question","name":"How long does it take?","acceptedAnswer":{"@type":"Answer","text":"A few minutes from upload to a full preview; a first trip somewhere we have not mapped in detail can take a quarter of an hour. The printed hardcover is produced close to you; the checkout shows the delivery estimate for your address, usually under two weeks in Europe."}},
@@ -470,7 +470,7 @@
     </div>
     <dl class="faq">
       <dt>How do I make a photo book from my phone photos?</dt>
-      <dd>Upload the trip’s photos from your phone or from Google Drive, at least <span data-bind="floor">20</span>. Mapories reads the dates and the GPS in them, groups the trip into days and places, keeps the best shots and lays out the book. You page through the whole preview before paying anything.</dd>
+      <dd>Upload the trip’s photos from your phone or from Google Drive, between <span data-bind="floor">20</span> and <span data-bind="max">200</span> of them. Mapories reads the dates and the GPS in them, groups the trip into days and places, keeps the best shots and lays out the book. You page through the whole preview before paying anything.</dd>
       <dt>Does the book have maps of where I went?</dt>
       <dd>Yes. The book opens on a map of the whole journey, and each chapter opens on the route of that day, with the towns and sights marked where you took the photos.</dd>
       <dt>Who writes the captions?</dt>
@@ -596,6 +596,7 @@
     if (s.product && s.product.base_pages) setAll('pages', String(s.product.base_pages));
     if (s.product && s.product.label) setAll('product', s.product.label);
     if (s.photo_floor) setAll('floor', String(s.photo_floor));
+    if (s.photo_max) setAll('max', String(s.photo_max));
     if (s.preview_time) setAll('preview_time', s.preview_time);
     const ship = document.getElementById('shipTo');
     if (ship && Array.isArray(s.ship_to) && s.ship_to.length){
