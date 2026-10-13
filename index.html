@@ -100,11 +100,11 @@
      chosen route; its CSS is used as generated, scoped and scaled.
      Paper colours are fixed in both themes: it is a printed object. */
   .cover-wrap{position:relative}
-  .cover{position:relative; width:100%; aspect-ratio:231/305; overflow:hidden; border-radius:6px; box-shadow:var(--paper-shadow); background:#e6ddcb}
+  .cover{position:relative; width:100%; aspect-ratio:231/305; overflow:hidden; border-radius:6px; box-shadow:var(--paper-shadow); background:#2f515c}
   .wall-scale{position:absolute; left:0; top:0; width:231mm; height:305mm; transform-origin:0 0; transform:scale(var(--k,1))}
 .wall-scale .wall{position:relative;width:231mm;height:231mm;overflow:hidden;background:#faf7f1}
 .wall-scale .map{position:absolute;inset:0;overflow:hidden}
-.wall-scale .board{position:absolute;inset:0;background:#e6ddcb;background-image:repeating-linear-gradient(0deg,rgba(43,39,36,.025) 0 .3mm,transparent .3mm 1.1mm)}
+.wall-scale .board{position:absolute;inset:0;background:#2f515c;background-image:repeating-linear-gradient(0deg,rgba(43,39,36,.025) 0 .3mm,transparent .3mm 1.1mm)}
 .wall-scale .sheet{position:absolute;left:18mm;top:30mm;right:30mm;bottom:6mm;background:#faf7f1;box-shadow:.6mm 1.2mm 3mm rgba(43,39,36,.24),0 0 .2mm rgba(43,39,36,.12),inset 0 0 0 .25mm rgba(255,255,255,.7)}
 .wall-scale .weave,.wall-scale .ripple,.wall-scale .hem,.wall-scale .fold{position:absolute;inset:0;display:none}
 .wall-scale .pin.corner{display:none;top:auto;left:auto;transform:none}
@@ -124,19 +124,23 @@
 .wall-scale .pin{position:absolute;top:-1.8mm;left:50%;transform:translateX(-50%);width:3.8mm;height:3.8mm;border-radius:50%;border:0.2mm solid #8a7f6a;background:radial-gradient(circle at 35% 30%,#ddd2bd,#978b74 72%)}
 .wall-scale .cap{text-align:center;margin-top:3.2mm;margin-bottom:1.8mm;font:600 8pt Archivo,'Helvetica Neue',Arial,sans-serif;letter-spacing:0.18em;color:#5c534a}
   /* the typography band under the wall, as the coverwrap template sets it */
-  .wall-scale .band{position:absolute; left:0; right:0; top:231mm; height:74mm; background:#e6ddcb; display:flex; align-items:flex-end; justify-content:space-between; padding:12mm 12mm 14mm 15mm; color:#2b2724}
+  .wall-scale .band{position:absolute; left:0; right:0; top:231mm; height:74mm; background:#2f515c; display:flex; align-items:flex-end; justify-content:space-between; padding:12mm 12mm 14mm 15mm; color:#fdfaf5}
   .wall-scale .blk{display:flex; flex-direction:column; gap:5mm}
-  .wall-scale .accent-bar{width:14mm; height:.8mm; background:#c05b33}
+  .wall-scale .accent-bar{width:14mm; height:.8mm; background:#e6a07c}
   .wall-scale .cwp-brand{display:flex; align-items:center; gap:3mm; font:600 9.5pt Archivo,"Helvetica Neue",Arial,sans-serif; letter-spacing:.3em; text-transform:uppercase}
-  .wall-scale .cwp-mark{display:block; width:6mm; color:#2b2724}
+  .wall-scale .cwp-mark{display:block; width:6mm; color:#fdfaf5}
   .wall-scale .cwp-mark svg{display:block; width:100%; height:auto}
   .wall-scale .cwp-title{margin:0; font:300 36pt/1.05 Newsreader,Georgia,"Times New Roman",serif; letter-spacing:-.01em; text-wrap:balance}
-  .wall-scale .cap.cwp-sub{text-align:left; margin:0; text-transform:uppercase; color:#5c534a}
+  .wall-scale .cap.cwp-sub{text-align:left; margin:0; text-transform:uppercase; color:#d9d2c6}
   /* the landing page's one addition: a print answers the day strip */
   .wall-scale .print{cursor:pointer; transition:scale .3s ease, box-shadow .3s ease}
   .wall-scale .print.on{scale:1.06; z-index:3 !important; box-shadow:2mm 4mm 9mm rgba(43,39,36,.34)}
   .wall-scale .print.on .cap{color:#c05b33}
 
+  .boards{display:flex; align-items:center; gap:7px; margin-top:12px; font-size:12px; color:var(--mut)}
+  .boards i{width:16px; height:16px; border-radius:50%; border:1px solid rgba(31,41,51,.14); box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+  .boards i.on{outline:2px solid var(--terra); outline-offset:2px}
+  .boards span{margin-left:4px}
   .days{display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin-top:16px}
   .day{appearance:none; border:1px solid transparent; background:transparent; border-radius:8px; padding:8px 6px 7px; text-align:left;
     display:flex; flex-direction:column; gap:3px; color:var(--mut); min-width:0; transition:background .15s ease}
@@ -273,6 +277,9 @@
   {"@type":"Question","name":"Does the book have maps of where I went?","acceptedAnswer":{"@type":"Answer","text":"Yes. The book opens on a map of the whole journey, and each chapter opens on the route of that day, with the towns and sights marked where you took the photos."}},
   {"@type":"Question","name":"Who writes the captions?","acceptedAnswer":{"@type":"Answer","text":"Mapories does, from the place, the date and what is in the photo. You see every title and caption in the preview and can change any of them before you order."}},
   {"@type":"Question","name":"How long does it take?","acceptedAnswer":{"@type":"Answer","text":"A few minutes from upload to a full preview; a first trip somewhere we have not mapped in detail can take a quarter of an hour. The printed hardcover is produced close to you; the checkout shows the delivery estimate for your address, usually under two weeks in Europe."}},
+  {"@type":"Question","name":"Can I change the photos or the layout?","acceptedAnswer":{"@type":"Answer","text":"Every title and caption, yes, right in the preview. The choice of photos and the page layouts are made for you from the whole trip; if a page is not right, start the book again with the photos you want in it. Nothing is printed until you have seen every page."}},
+  {"@type":"Question","name":"What if the book arrives damaged?","acceptedAnswer":{"@type":"Answer","text":"Write to orders@maporiesbooks.com with a photo of the damage and we reprint the same book at no cost."}},
+  {"@type":"Question","name":"Who sees my photos?","acceptedAnswer":{"@type":"Answer","text":"Only you, and the service that makes your book. They are never shown to other customers or used for anything else, and an unfinished book and its photos are deleted the moment you ask."}},
   {"@type":"Question","name":"What does it cost and where do you deliver?","acceptedAnswer":{"@type":"Answer","text":"A 21 × 28 cm hardcover starts at €54.90 for 32 pages, VAT included. Extra pages and shipping are shown before you pay; shipping is priced at checkout for your country."}}
  ]}
 ]}
@@ -303,8 +310,8 @@
   <section class="hero">
     <div class="lede">
       <p class="eyebrow">A printed atlas of your trip</p>
-      <h1>The photos are on your phone.<br>The book is <em>one button away.</em></h1>
-      <p class="sub">Upload a trip. We read where you stood, the square, the museum, the fountain, mark the World Heritage sites, keep the best shots, write a caption for every photo and lay out a hardcover with your route on the maps. You page through the whole book free in a few minutes and pay only when you order.</p>
+      <h1>Your trip in a book,<br>your route <em>on real maps.</em></h1>
+      <p class="sub">Upload the photos from your phone, page through the finished book free in a few minutes, and pay only when you order the print.</p>
       <div class="ctas">
         <a href="/app#new" class="btn cta" data-start>Start with your photos</a>
         <a href="#how" class="btn ghost">See how it works</a>
@@ -325,6 +332,7 @@
           <div class="cwp-brand"><span class="cwp-mark"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M10.0 44.0C18.0 28.0 26.0 40.0 34.0 26.0C38.0 19.0 42.0 16.0 46.0 14.0" stroke="currentColor" stroke-width="3.50" stroke-linecap="round" stroke-dasharray="1 7.0" fill="none"/><circle cx="10.0" cy="44.0" r="5.0" fill="currentColor"/><path d="M44.0 4.0C38.0 4.0 33.0 9.0 33.0 15.0C33.0 23.0 44.0 32.0 44.0 32.0C44.0 32.0 55.0 23.0 55.0 15.0C55.0 9.0 50.0 4.0 44.0 4.0Z" fill="#c05b33"/><circle cx="44.0" cy="15.0" r="3.5" fill="#e6ddcb"/></svg></span>Mapories</div></div>
         </div>
       </div>
+      <div class="boards" aria-label="Twelve board colours, this one is petrol"><i style="background:#e6ddcb" title="Paper"></i><i style="background:#d6c7a8" title="Linen"></i><i style="background:#c9a15c" title="Ochre"></i><i style="background:#cfa196" title="Rose"></i><i style="background:#a4b39c" title="Eucalyptus"></i><i style="background:#b4c3ca" title="Fog"></i><i style="background:#66684a" title="Olive"></i><i style="background:#3d5648" title="Forest"></i><i class="on" style="background:#2f515c" title="Petrol"></i><i style="background:#533a55" title="Plum"></i><i style="background:#232f4a" title="Navy"></i><i style="background:#34302d" title="Charcoal"></i><span>Twelve board colours. This one is petrol.</span></div>
       <div class="days" id="days" role="group" aria-label="Days of the trip"></div>
       <div class="hl" id="hl" aria-live="polite"></div>
     </div>
@@ -339,17 +347,17 @@
       <div class="step">
         <div class="k"><span class="eyebrow">Upload</span><span class="tm">iPhone HEIC · JPEG · RAW</span></div>
         <h3>Your camera roll, straight from the phone or from Google Drive.</h3>
-        <p>Dots land on the map as the photos arrive, named within a second: not “Rome” but the Colosseum, not “Verona” but Juliet’s House. From <span data-bind="floor">20</span> photos up. Photos without a location still make the book, just not the maps.</p>
+        <p>Dots land on the map as the photos arrive, named within a second: not “Rome” but the Colosseum, not “Verona” but Juliet’s House. <span data-bind="floor">20</span> to <span data-bind="max">200</span> photos. Photos without a location still make the book, just not the maps.</p>
         <div class="ticket" data-ticket="upload" aria-label="Replay of the upload ticket"></div>
       </div>
       <div class="step">
         <div class="k"><span class="eyebrow">Design</span><span class="tm" data-bind="preview_time">a few minutes</span></div>
         <h3>Curated, named, captioned and laid out by chapter.</h3>
-        <p>You press one button and page through the finished book <span data-bind="preview_time">a few minutes</span> later. Near-duplicates and blurry frames go. Days become chapters, Rome to Venice in five, each named by the storyteller, and every spread is checked so no page prints blank.</p>
+        <p>You press one button and page through the finished book <span data-bind="preview_time">a few minutes</span> later. Near-duplicates and blurry frames go. Days become chapters, Rome to Venice in five, each with its own title, and every spread is checked so no page prints blank.</p>
         <div class="ticket" data-ticket="design" aria-label="Replay of the design pass"></div>
       </div>
       <div class="step">
-        <div class="k"><span class="eyebrow">Order</span><span class="tm">5 to 9 days to your door</span></div>
+        <div class="k"><span class="eyebrow">Order</span><span class="tm">usually under two weeks</span></div>
         <h3>Page through the whole book first. Then order the hardcover.</h3>
         <p>The full preview is free. The hardcover starts at <span data-bind="price">€54.90</span> for <span data-bind="pages">32</span> pages, VAT included. Shipping is quoted for your address before you pay, and the book is locked the moment you pay, so what you see is exactly what gets printed.</p>
         <div class="ticket" data-ticket="order" aria-label="What happens after you order"></div>
@@ -360,7 +368,7 @@
   <section class="s" id="places">
     <div class="shead">
       <h2>Every place you stood, named in the book</h2>
-      <p>Every photo is placed four levels deep: the country, the town, the street or square, and the place itself, the museum, the fountain, the bridge. When that place is on the UNESCO World Heritage list, the chapter says so: a kicker on its opener, and the stamp on the contents and route pages. These three openers are from this trip’s books, as printed.</p>
+      <p>Every photo is placed by country, town, street or quarter, and the place itself: the museum, the fountain, the bridge. When that place is on the UNESCO World Heritage list, the chapter says so on its opening page, and the stamp appears on the contents and route pages. These three openers are from this trip’s books, as printed.</p>
     </div>
     <div class="openers">
       <div class="opener">
@@ -387,7 +395,7 @@
     <dl class="ladder">
       <dt>Country</dt><dd>Italy</dd>
       <dt>Town</dt><dd>Rome</dd>
-      <dt>Where you stood</dt><dd>Municipio Roma I</dd>
+      <dt>Where you stood</dt><dd>Piazza del Colosseo</dd>
       <dt>The place</dt><dd>Colosseum <span class="stamp"><b>UNESCO</b>World Heritage</span></dd>
     </dl>
   </section>
@@ -439,17 +447,17 @@
         <p class="eyebrow">The book</p>
         <h2 style="margin-top:8px">A printed hardcover photo book, 21 × 28 cm</h2>
         <dl class="spec">
-          <dt>Format</dt><dd>Hardcover, 21 × 28 cm portrait, matte wrap cover with your title on the spine</dd>
+          <dt>Format</dt><dd>Hardcover, 21 × 28 cm portrait, matte wrap cover, your title on the spine from 40 pages</dd>
           <dt>Pages</dt><dd>From <span data-bind="pages">32</span> pages. The book grows with the trip, and you see the page count and price before you pay</dd>
           <dt>Cover</dt><dd>A taped wall of your best prints on the route map, or one photo full bleed. Twelve board colours</dd>
           <dt>Inside</dt><dd>A journey map, a contents page with the highlights, and one chapter per day with its own route map</dd>
-          <dt>Printing</dt><dd>Printed close to you and shipped within 5 to 9 working days<span id="shipTo" hidden></span></dd>
+          <dt>Printing</dt><dd>Printed close to you in a few working days and at your door usually within two weeks in Europe; the checkout shows the estimate for your address<span id="shipTo" hidden></span></dd>
           <dt>Price</dt><dd><span data-bind="price">€54.90</span> for the <span data-bind="pages">32</span>-page 21 × 28 cm hardcover, VAT included. Longer books cost a little more per page; you see the exact price before checkout. Shipping is quoted live for your address</dd>
         </dl>
       </div>
       <div class="mt" style="align-self:stretch; justify-content:center">
         <p class="eyebrow" style="color:#5a6272">The cover you saw above</p>
-        <p style="font-family:Newsreader,Georgia,serif; font-size:22px; line-height:1.25; color:#1f2933">A map of the trip on a taped sheet, your best prints pinned over it, the title in your words. The Art Director picks the prints.</p>
+        <p style="font-family:Newsreader,Georgia,serif; font-size:22px; line-height:1.25; color:#1f2933">A map of the trip on a taped sheet, your best prints pinned over it, the title in your words. We pick the prints.</p>
         <p style="font-size:13px; color:#5a6272">Wraparound, matte laminated, spine text from 40 pages.</p>
       </div>
     </div>
@@ -476,7 +484,13 @@
       <dt>Who writes the captions?</dt>
       <dd>Mapories does, from the place, the date and what is in the photo. You see every title and caption in the preview and can change any of them before you order.</dd>
       <dt>How long does it take?</dt>
-      <dd><span data-bind="preview_time">A few minutes</span> from upload to a full preview. Trips through places we have mapped in detail come back fastest; a first trip somewhere new can take a quarter of an hour while we look up every stop. The printed hardcover is produced close to you; the checkout shows the delivery estimate for your address, usually under two weeks in Europe.</dd>
+      <dd>From upload to a full preview, <span data-bind="preview_time">a few minutes</span>. Trips through places we have mapped in detail come back fastest; a first trip somewhere new can take a quarter of an hour while we look up every stop. The printed hardcover is produced close to you; the checkout shows the delivery estimate for your address, usually under two weeks in Europe.</dd>
+      <dt>Can I change the photos or the layout?</dt>
+      <dd>Every title and caption, yes, right in the preview. The choice of photos and the page layouts are made for you from the whole trip; if a page is not right, start the book again with the photos you want in it. Nothing is printed until you have seen every page.</dd>
+      <dt>What if the book arrives damaged?</dt>
+      <dd>Write to <a href="mailto:orders@maporiesbooks.com">orders@maporiesbooks.com</a> with a photo of the damage and we reprint the same book at no cost.</dd>
+      <dt>Who sees my photos?</dt>
+      <dd>Only you, and the service that makes your book. They are never shown to other customers or used for anything else, and an unfinished book and its photos are deleted the moment you ask. The <a href="/privacy">privacy page</a> has the details.</dd>
       <dt>What does it cost and where do you deliver?</dt>
       <dd>The <span data-bind="product">Hardcover 21 × 28 cm</span> starts at <span data-bind="price">€54.90</span> for <span data-bind="pages">32</span> pages, VAT included. Extra pages and shipping are shown before you pay. <span id="faqShip">Shipping is priced at checkout for your country.</span></dd>
     </dl>
@@ -493,6 +507,7 @@
   <footer>
     <span>© 2026 mapories.books</span>
     <span>Mapories Books is a brand of <a href="https://samartiart.com" style="color:inherit">Samarti Art</a></span>
+    <span>Questions? <a href="mailto:orders@maporiesbooks.com" style="color:inherit">orders@maporiesbooks.com</a></span>
     <nav class="legal"><a href="/legal">Legal</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></nav>
   </footer>
 
@@ -544,9 +559,9 @@
       ['IMG_2612.HEIC','Lungolago, Como'],['IMG_9018.JPEG','Carsolina, Bellagio'],['IMG_1142.HEIC','Juliet’s House, Verona'],['IMG_1207.HEIC','St. Mark’s Square, Venice']]},
     design: {beat: 1300, head: ['Designing your book…', 'curate · write · lay out'], done: ['32 pages ready', 'Next: page through'], pct: true, clock: 9.3, rows: [
       ['Curator','42 of 61 kept, bursts and near-duplicates out'],['Chapter 1','Colosseum and Roman Forum · 14 photos'],['Chapter 2','Lakeside Promenade in Como · 9 photos'],
-      ['Chapter 3','Lakeshore Stairs of Bellagio · 6 photos'],['Chapter 4','Wandering Historic Verona · 11 photos'],['Chapter 5','Canals and Cloaks of Venice · 21 photos'],['Art Director','32 pages, none blank']]},
+      ['Chapter 3','Lakeshore Stairs of Bellagio · 6 photos'],['Chapter 4','Wandering Historic Verona · 11 photos'],['Chapter 5','Canals and Cloaks of Venice · 21 photos'],['Layout','32 pages, none blank']]},
     order: {beat: 700, head: ['Get the book', '32 pages · hardcover 21 × 28 cm'], done: ['Get the book', '32 pages · hardcover 21 × 28 cm'], pct: false, ring: '€54.90', clock: null, once: true, rows: [
-      ['Pay','Locked the moment you pay'],['Print','What you see is what prints'],['Ship','Printed close to you'],['Track','5 to 9 working days, tracking by email'],['Keep','Reorder the same book any time']]}
+      ['Pay','Locked the moment you pay'],['Print','What you see is what prints'],['Ship','Printed close to you'],['Track','Usually under two weeks, tracking by email'],['Keep','Reorder the same book any time']]}
   };
   document.querySelectorAll('.ticket[data-ticket]').forEach(el => {
     const T = TICKETS[el.dataset.ticket]; if (!T) return;
@@ -632,7 +647,10 @@
         let when = '';
         if (st.until){ const d = new Date(st.until); if (!isNaN(d)) when = ' Back ' + d.toLocaleString('en-GB', {weekday: 'long', hour: '2-digit', minute: '2-digit', timeZoneName: 'short'}) + '.'; }
         n.innerHTML = '<b>Taking a short break.</b><span></span>';
-        n.lastChild.textContent = (st.notice || 'New books are paused for maintenance.') + when;
+        n.lastChild.textContent = (st.notice || 'New books are paused for maintenance.') + when + ' Write to ';
+        const m = document.createElement('a'); m.href = 'mailto:orders@maporiesbooks.com?subject=Tell%20me%20when%20Mapories%20opens';
+        m.textContent = 'orders@maporiesbooks.com'; m.style.color = 'inherit'; n.lastChild.appendChild(m);
+        n.lastChild.appendChild(document.createTextNode(' and we tell you the day it opens.'));
         n.hidden = false;
       }
     }
