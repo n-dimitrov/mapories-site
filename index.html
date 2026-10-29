@@ -88,10 +88,11 @@
   .notice b{white-space:nowrap}
 
   /* ---- hero ---- */
-  .hero{display:grid; grid-template-columns:minmax(280px,5fr) minmax(0,6fr); gap:clamp(24px,4vw,56px); align-items:start; padding-block:28px 40px}
-  .hero .lede{display:flex; flex-direction:column; gap:22px; padding-top:18px}
+  .hero{display:grid; grid-template-columns:minmax(280px,5fr) minmax(0,6.6fr); gap:clamp(24px,4vw,56px); align-items:stretch; padding-block:28px 40px}
+  .hero .lede{display:flex; flex-direction:column; gap:20px; padding-top:4px}
   .hero .lede p.sub{font-size:17px; color:var(--mut); max-width:38ch; text-wrap:pretty}
   .hero .ctas{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+  .hero .days-block{margin-top:auto; padding-top:14px; display:flex; flex-direction:column; gap:10px}
   .hero .fine{font-size:12.5px; color:var(--mut)}
   .hero .fine b{color:var(--ink); font-weight:600}
 
@@ -141,18 +142,18 @@
   .boards i{width:16px; height:16px; border-radius:50%; border:1px solid rgba(31,41,51,.14); box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
   .boards i.on{outline:2px solid var(--terra); outline-offset:2px}
   .boards span{margin-left:4px}
-  .days{display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin-top:16px}
+  .days{display:grid; grid-template-columns:repeat(5,1fr); gap:6px}
   .day{appearance:none; border:1px solid transparent; background:transparent; border-radius:8px; padding:8px 6px 7px; text-align:left;
     display:flex; flex-direction:column; gap:3px; color:var(--mut); min-width:0; transition:background .15s ease}
   .day .d{white-space:nowrap; font:500 10.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.1em; text-transform:uppercase}
   .day .w{font-size:12.5px; font-weight:600; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-  .day .p{font-size:10.5px; color:var(--mut); white-space:nowrap}
+  .day .p{font-size:10.5px; color:var(--mut); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
   .day:hover{background:var(--navysoft)}
   .day[aria-pressed="true"]{background:var(--card); border-color:var(--line); color:var(--terra)}
   .day[aria-pressed="true"] .d{color:var(--terra)}
   /* the day card keeps one size while the days roll: room for a two-line
      caption and one meta row, whatever the day says */
-  .hl{margin-top:8px; background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px 14px; display:grid;
+  .hl{margin-top:0; background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px 14px; display:grid;
     grid-template-columns:1fr auto; gap:12px; align-items:start; height:112px; overflow:hidden}
   .hl .t{min-width:0; display:flex; flex-direction:column; gap:2px}
   .hl .cap{font-family:Newsreader,Georgia,serif; font-size:19px; line-height:1.25; color:var(--ink); text-wrap:pretty; height:calc(2 * 1.25em); overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical}
@@ -176,7 +177,9 @@
   .opener .chp{font:300 24px/1.1 Newsreader,Georgia,serif; letter-spacing:-.005em; text-wrap:balance}
   .opener .where{font:400 11.5px/1.4 Archivo,"Helvetica Neue",Arial,sans-serif; color:#5f564d; margin-top:auto}
   .opener .where b{font-weight:600; color:#2b2724}
-  .ladder{display:grid; grid-template-columns:auto 1fr; gap:6px 16px; font-size:14px; margin-top:18px; max-width:52ch}
+  .ladder-row{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.4fr); gap:24px 48px; align-items:center; margin-top:24px}
+  .ladder-row p{color:var(--mut); font-size:15px; max-width:52ch; text-wrap:pretty}
+  .ladder{display:grid; grid-template-columns:auto 1fr; gap:6px 16px; font-size:14px; margin:0; max-width:52ch}
   .ladder dt{font:500 10.5px/1.9 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--mut)}
   .ladder dd{margin:0}
   .ladder dd .stamp{margin-left:8px}
@@ -234,6 +237,9 @@
   .mt .c span{font:400 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.1em; text-transform:uppercase; color:#5a6272}
 
   .book{display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:40px; align-items:center}
+  .book-cover{max-width:360px; margin-inline:auto}
+  .cover2, .cover2 .board, .cover2 .band{background-color:#2f4a3a}
+  .cover2 .print{cursor:default}
   .spec{display:grid; grid-template-columns:auto 1fr; gap:10px 22px; font-size:14.5px; margin-top:8px}
   .spec dt{color:var(--mut); font:500 11px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.12em; text-transform:uppercase; padding-top:3px}
   .spec dd{margin:0}
@@ -250,17 +256,41 @@
   footer .legal a:hover{color:var(--ink)}
 
 
+  /* the coming-soon curtain: shown until the opening minute, then lifted */
+  html.soon{overflow:hidden}
+  .curtain{position:fixed; inset:0; z-index:100; background:#f4f2ec; color:#1f2933; overflow:auto; display:flex; flex-direction:column;
+    padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .curtain header{padding:22px clamp(0px,2vw,24px)}
+  .curtain header img{height:30px; width:auto; display:block}
+  .curtain main{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:clamp(20px,4vw,36px); padding:0 0 48px}
+  .curtain .pic{position:relative; width:100%; max-width:1200px}
+  .curtain .pic img{width:100%; max-width:100%; height:auto; display:block; aspect-ratio:1200/630}
+  .curtain .opening{position:absolute; right:clamp(8px,3vw,36px); top:clamp(8px,3vw,36px); transform:rotate(-7deg);
+    display:grid; justify-items:center; padding:10px 16px 8px; border:2.5px solid #c66a46; border-radius:5px; color:#c05b33; background:rgba(250,247,241,.82);
+    font:600 clamp(11px,1.4vw,15px)/1.3 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.2em; text-transform:uppercase; white-space:nowrap;
+    box-shadow:0 1px 0 rgba(255,255,255,.6) inset; opacity:.92}
+  .curtain .opening b{font-size:1.5em; font-weight:600; letter-spacing:.12em}
+  .curtain .soon{text-align:center}
+  .curtain .soon p{display:inline-flex; align-items:center; gap:10px; margin:0; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:#6b7684}
+  .curtain .soon p::before{content:""; width:8px; height:8px; border-radius:50%; background:#e0583a}
+  .curtain .soon h1{font:400 clamp(30px,5vw,56px)/1.05 Newsreader,Georgia,serif; margin:10px 0 0; letter-spacing:-.005em; color:#1f2933}
+  @media (max-width:560px){ .curtain .opening{right:6px; top:6px; padding:6px 10px 5px; letter-spacing:.12em} }
   @media (max-width:880px){
-    .hero{grid-template-columns:1fr}
+    /* phone: the text, then the cover, then the days that point at it */
+    .hero{display:flex; flex-direction:column; gap:22px}
+    .hero .lede{display:contents}
+    .hero .cover-wrap{order:1}
+    .hero .days-block{order:2; padding-top:0}
     .steps,.maps3,.trust,.openers{grid-template-columns:1fr}
     .steps{grid-template-rows:none}
     .step{grid-template-rows:auto; grid-row:auto}
-    .shead,.book{grid-template-columns:1fr}
+    .shead,.book,.ladder-row{grid-template-columns:1fr}
     .final{grid-template-columns:1fr}
     .bar nav a.hide{display:none}
   }
   @media (max-width:560px){
-    .days{grid-template-columns:repeat(4,1fr)}
+    .days{grid-template-columns:repeat(5,1fr)}
+    .hl .meta .stamp{display:none}
     .day .w{display:none}
     .day .p{display:none}
   }
@@ -286,6 +316,24 @@
 </script>
 </head>
 <body>
+<div class="curtain" id="curtain" hidden aria-label="Coming soon">
+  <header><img src="assets/wordmark.svg" alt="mapories.books" width="103" height="36"></header>
+  <main>
+    <div class="pic">
+      <img src="assets/coming-soon.png" width="1200" height="630" alt="A Mapories photobook, Winter Stones of Rome, over a map of Italy">
+      <div class="opening"><span>Opening</span><b>29 Oct 2026</b><span id="openingTime">11:37 EET</span></div>
+    </div>
+    <div class="soon">
+      <p>Coming soon</p>
+      <h1>Your trip, designed into a printed photobook.</h1>
+    </div>
+  </main>
+</div>
+<script>
+  // the curtain goes up before the first paint: the opening minute is in the
+  // HTML as well as in site.json, so there is no flash of the page underneath
+  (function(){ var at = Date.parse('2026-10-29T11:37:00+02:00'); if (Date.now() < at){ document.getElementById('curtain').hidden = false; document.documentElement.classList.add('soon'); } })();
+</script>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="pin" viewBox="0 0 16 16">
     <path fill="currentColor" d="M8 1.2C5.4 1.2 3.3 3.3 3.3 5.9c0 3.5 4.7 8.9 4.7 8.9s4.7-5.4 4.7-8.9C12.7 3.3 10.6 1.2 8 1.2zm0 6.5a1.9 1.9 0 1 1 0-3.8 1.9 1.9 0 0 1 0 3.8z"/>
@@ -317,7 +365,12 @@
         <a href="#how" class="btn ghost">See how it works</a>
       </div>
       <p class="notice" id="startNotice" hidden role="status"></p>
-      <p class="fine"><b><span data-bind="product">Hardcover 21 × 28 cm</span> from <span data-bind="price">€54.90</span></b> for <span data-bind="pages">32</span> pages, VAT included. The button takes you straight to the upload screen. No account needed to start.<span id="deliverLine" hidden></span></p>
+      <p class="fine"><b><span data-bind="product">Hardcover 21 × 28 cm</span> from <span data-bind="price">€54.90</span></b> for <span data-bind="pages">32</span> pages, VAT included. No account needed to start.<span id="deliverLine" hidden></span></p>
+      <div class="days-block">
+        <p class="eyebrow days-label">The five days of this book</p>
+        <div class="days" id="days" role="group" aria-label="Days of the trip"></div>
+        <div class="hl" id="hl" aria-live="polite"></div>
+      </div>
     </div>
 
     <div class="cover-wrap">
@@ -333,8 +386,6 @@
         </div>
       </div>
       <div class="boards" aria-label="Twelve board colours, this one is petrol"><i style="background:#e6ddcb" title="Paper"></i><i style="background:#d6c7a8" title="Linen"></i><i style="background:#c9a15c" title="Ochre"></i><i style="background:#cfa196" title="Rose"></i><i style="background:#a4b39c" title="Eucalyptus"></i><i style="background:#b4c3ca" title="Fog"></i><i style="background:#66684a" title="Olive"></i><i style="background:#3d5648" title="Forest"></i><i class="on" style="background:#2f515c" title="Petrol"></i><i style="background:#533a55" title="Plum"></i><i style="background:#232f4a" title="Navy"></i><i style="background:#34302d" title="Charcoal"></i><span>Twelve board colours. This one is petrol.</span></div>
-      <div class="days" id="days" role="group" aria-label="Days of the trip"></div>
-      <div class="hl" id="hl" aria-live="polite"></div>
     </div>
   </section>
 
@@ -392,12 +443,15 @@
         <span class="where"><b>St. Mark’s Square · Venice</b><br>Rio della Salute · Canal Grande · Ponte Papadopoli</span>
       </div>
     </div>
-    <dl class="ladder">
-      <dt>Country</dt><dd>Italy</dd>
-      <dt>Town</dt><dd>Rome</dd>
-      <dt>Where you stood</dt><dd>Piazza del Colosseo</dd>
-      <dt>The place</dt><dd>Colosseum <span class="stamp"><b>UNESCO</b>World Heritage</span></dd>
-    </dl>
+    <div class="ladder-row">
+      <dl class="ladder">
+        <dt>Country</dt><dd>Italy</dd>
+        <dt>Town</dt><dd>Rome</dd>
+        <dt>Where you stood</dt><dd>Piazza del Colosseo</dd>
+        <dt>The place</dt><dd>Colosseum <span class="stamp"><b>UNESCO</b>World Heritage</span></dd>
+      </dl>
+      <p>Four levels of place for every photo, read from where it was taken. The street or square is what the caption says, the sight is what the chapter is named after, and the stamp appears when that sight is on the World Heritage list.</p>
+    </div>
   </section>
 
   <section class="s" id="maps">
@@ -455,10 +509,11 @@
           <dt>Price</dt><dd><span data-bind="price">€54.90</span> for the <span data-bind="pages">32</span>-page 21 × 28 cm hardcover, VAT included. Longer books cost a little more per page; you see the exact price before checkout. Shipping is quoted live for your address</dd>
         </dl>
       </div>
-      <div class="mt" style="align-self:stretch; justify-content:center">
-        <p class="eyebrow" style="color:#5a6272">The cover you saw above</p>
-        <p style="font-family:Newsreader,Georgia,serif; font-size:22px; line-height:1.25; color:#1f2933">A map of the trip on a taped sheet, your best prints pinned over it, the title in your words. We pick the prints.</p>
-        <p style="font-size:13px; color:#5a6272">Wraparound, matte laminated, spine text from 40 pages.</p>
+      <div class="book-cover">
+        <div class="cover cover2" id="cover2" aria-label="The cover you saw above, on the forest board"></div>
+        <p class="eyebrow" style="margin-top:14px">The cover you saw above, in forest</p>
+        <p style="font-family:Newsreader,Georgia,serif; font-size:20px; line-height:1.25; margin-top:6px">A map of the trip on a taped sheet, your best prints pinned over it, the title in your words. We pick the prints.</p>
+        <p style="font-size:13px; color:var(--mut); margin-top:6px">Wraparound, matte laminated, spine text from 40 pages.</p>
       </div>
     </div>
   </section>
@@ -521,16 +576,20 @@
     {d:2, name:'Como',     poi:'Lungolago', title:'Boats in Como Harbor',      cap:'Dozens of small motorboats and sailboats bob quietly along the pontoons under soft summer clouds.', n:9, kept:6, time:'17:10', wall:true},
     {d:3, name:'Bellagio', poi:'Carsolina', title:'Cobbled Alley of Bellagio', cap:'Shops and wine bars climb the steep pebble stairway under terracotta walls.', n:6, kept:4, time:'11:30', wall:true},
     {d:4, name:'Verona',   poi:'Juliet\'s House', title:'Courtyard by the Balcony', cap:'Visitors gather in the courtyard of Juliet\'s House beneath the famous stone balcony and gothic windows.', n:11, kept:8, time:'10:40', wall:true},
-    {d:5, name:'Venice',   poi:'Palazzi Contarini degli Scrigni', title:'Gondola on Rio Waters', cap:'A gondolier guides passengers past pale stone facades and arched windows.', n:21, kept:14, time:'11:05', wall:true}
+    {d:5, name:'Venice',   poi:'San Marco', title:'Gondola on Rio Waters', cap:'A gondolier guides passengers past pale stone facades and arched windows.', n:21, kept:14, time:'11:05', wall:true}
   ];
   // the wall is authored in mm (231 × 305) and scaled to the column
   const cover = document.getElementById('cover'), ws = document.getElementById('wallScale');
   const MM = 96 / 25.4;
   function fit(){ ws.style.setProperty('--k', (cover.clientWidth / (231 * MM)).toFixed(4)); }
   fit(); new ResizeObserver(fit).observe(cover);
+  // the same wall once more under The book, on another board
+  const c2 = document.getElementById('cover2');
+  if (c2){ const w2 = ws.cloneNode(true); w2.removeAttribute('id'); c2.appendChild(w2);
+    const fit2 = () => w2.style.setProperty('--k', (c2.clientWidth / (231 * MM)).toFixed(4)); fit2(); new ResizeObserver(fit2).observe(c2); }
 
   const days = document.getElementById('days');
-  days.innerHTML = STOPS.map((st, i) => '<button type="button" class="day" data-i="'+i+'" aria-pressed="false"><span class="d">Day '+st.d+'</span><span class="w">'+st.name+'</span><span class="p">'+(st.wall ? 'on cover' : 'in book')+'</span></button>').join('');
+  days.innerHTML = STOPS.map((st, i) => '<button type="button" class="day" data-i="'+i+'" aria-pressed="false"><span class="d">Day '+st.d+'</span><span class="w">'+st.name+'</span><span class="p">'+(st.poi || '')+'</span></button>').join('');
   const hl = document.getElementById('hl');
   const pinSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg>';
   let cur = -1, timer = 0;
@@ -638,22 +697,42 @@
         dl.hidden = false;
       }
     }
-    // the switch: off means every start button goes quiet and says why
+    // the switch: off means every start button goes quiet and says why.
+    // With an opening time set, the page opens itself at that minute on the
+    // viewer's clock, so the launch needs no deploy to land on the hour.
     const st = s.start || {};
-    if (st.enabled === false){
-      starts.forEach(a => { a.setAttribute('aria-disabled', 'true'); a.removeAttribute('href'); a.addEventListener('click', e => e.preventDefault()); });
-      const n = document.getElementById('startNotice');
+    const until = st.until ? new Date(st.until) : null;
+    const opensAt = until && !isNaN(until) ? until.getTime() : null;
+    const n = document.getElementById('startNotice');
+    const curtain = document.getElementById('curtain');
+    const quiet = e => e.preventDefault();
+    function wake(){
+      if (curtain){ curtain.hidden = true; document.documentElement.classList.remove('soon'); }
+      starts.forEach(a => { a.removeAttribute('aria-disabled'); a.href = app + (s.start_path || '/app#new'); a.removeEventListener('click', quiet); });
+      if (n) n.hidden = true;
+    }
+    if (st.enabled === false && !(opensAt && Date.now() >= opensAt)){
+      if (curtain && opensAt){ curtain.hidden = false; document.documentElement.classList.add('soon');
+        const ot = document.getElementById('openingTime'); if (ot) ot.textContent = until.toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit', timeZoneName: 'short'}); }
+      starts.forEach(a => { a.setAttribute('aria-disabled', 'true'); a.removeAttribute('href'); a.addEventListener('click', quiet); });
       if (n){
-        let when = '';
-        if (st.until){ const d = new Date(st.until); if (!isNaN(d)) when = ' Back ' + d.toLocaleString('en-GB', {weekday: 'long', hour: '2-digit', minute: '2-digit', timeZoneName: 'short'}) + '.'; }
-        n.innerHTML = '<b>Taking a short break.</b><span></span>';
-        n.lastChild.textContent = (st.notice || 'New books are paused for maintenance.') + when + ' Write to ';
-        const m = document.createElement('a'); m.href = 'mailto:orders@maporiesbooks.com?subject=Tell%20me%20when%20Mapories%20opens';
-        m.textContent = 'orders@maporiesbooks.com'; m.style.color = 'inherit'; n.lastChild.appendChild(m);
-        n.lastChild.appendChild(document.createTextNode(' and we tell you the day it opens.'));
+        if (opensAt){
+          const sameDay = until.toDateString() === new Date().toDateString();
+          const when = sameDay ? 'today at ' + until.toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit', timeZoneName: 'short'})
+            : until.toLocaleString('en-GB', {weekday: 'long', hour: '2-digit', minute: '2-digit', timeZoneName: 'short'});
+          n.innerHTML = '<b>Coming soon.</b><span></span>';
+          n.lastChild.textContent = (st.notice || 'New books open') + ' ' + when + '.';
+        } else {
+          n.innerHTML = '<b>Taking a short break.</b><span></span>';
+          n.lastChild.textContent = (st.notice || 'New books are paused for maintenance.') + ' Write to ';
+          const m = document.createElement('a'); m.href = 'mailto:orders@maporiesbooks.com?subject=Tell%20me%20when%20Mapories%20opens';
+          m.textContent = 'orders@maporiesbooks.com'; m.style.color = 'inherit'; n.lastChild.appendChild(m);
+          n.lastChild.appendChild(document.createTextNode(' and we tell you the day it opens.'));
+        }
         n.hidden = false;
       }
-    }
+      if (opensAt) setTimeout(wake, Math.min(opensAt - Date.now() + 250, 2147483647));
+    } else wake();
   }
   fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + Date.now(), {cache: 'no-store', credentials: 'omit'})
     .then(r => r.ok ? r.json() : null).then(s => { if (s) apply(s); }).catch(() => {});
