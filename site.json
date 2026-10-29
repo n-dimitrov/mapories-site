@@ -4,11 +4,11 @@
   "books_path": "/app#books",
   "start": {
     "enabled": false,
-    "notice": "New books open soon.",
-    "until": null
+    "notice": "New books open",
+    "until": "2026-10-29T11:37:00+02:00"
   },
   "product": {
-    "label": "Hardcover 21 × 28 cm",
+    "label": "Hardcover 21 \u00d7 28 cm",
     "base_pages": 32
   },
   "price": {
